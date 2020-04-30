@@ -1,5 +1,7 @@
-﻿using System.Security.Claims;
+﻿using System.Data.Entity;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Data.Entities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -29,5 +31,9 @@ namespace Data
         {
             return new ApplicationDbContext();
         }
+        public DbSet<Class> Classes { get; set; }
+        public DbSet<Subclass> Subclasses { get; set; }
+        public DbSet<Race> Races { get; set; }
+        public DbSet<Subrace> Subraces { get; set; }
     }
 }

@@ -14,7 +14,9 @@ namespace Data.Entities
         public int SubraceId { get; set; }
         public string SubraceName { get; set; }
         public string SubraceDescription { get; set; }
+        public string AbilityStoreIncrease { get; set; }
         public string Source { get; set; }
+        public string Origin { get; set; }
         [ForeignKey("ParentRace")]
         public int RaceId { get; set; }
         public virtual Race ParentRace { get; set; }
