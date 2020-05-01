@@ -26,11 +26,14 @@ namespace Services
             _ctx.SaveChanges();
         }
 
-        public void DeleteClass(ClassDeleteModel classToDelete)
+        public void DeleteClass(int classId)
         {
-            Class entity = _ctx.Classes.Single(e => e.ClassId == classToDelete.ClassId);
-            _ctx.Classes.Remove(entity);
-            _ctx.SaveChanges();
+            Class entity = _ctx.Classes.Single(e => e.ClassId == classId);
+            if (entity != null)
+            {
+                _ctx.Classes.Remove(entity);
+                _ctx.SaveChanges();
+            }
         }
 
         public ClassDetailModel GetClassDetailById(int classId)
@@ -58,9 +61,9 @@ namespace Services
             return returnList;
         }
 
-        public void UpdateClass(ClassUpdateModel classToUpdate)
+        public void UpdateClass(ClassUpdateModel classToUpdate, int classId)
         {
-            Class entity = _ctx.Classes.Single(e => e.ClassId == classToUpdate.ClassId);
+            Class entity = _ctx.Classes.Single(e => e.ClassId == classId);
             if (entity != null)
             {
                 if (classToUpdate.UpdatedClassName != null)

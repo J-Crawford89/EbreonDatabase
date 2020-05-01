@@ -27,9 +27,9 @@ namespace Services
             _ctx.SaveChanges();
         }
 
-        public void DeleteSubclass(SubclassDeleteModel subclassToDelete)
+        public void DeleteSubclass(int subclassId)
         {
-            Subclass entity = _ctx.Subclasses.Single(e => e.SubclassId == subclassToDelete.SubclassId);
+            Subclass entity = _ctx.Subclasses.Single(e => e.SubclassId == subclassId);
             _ctx.Subclasses.Remove(entity);
             _ctx.SaveChanges();
         }
@@ -59,9 +59,9 @@ namespace Services
             return returnList;
         }
 
-        public void UpdateSubclass(SubclassUpdateModel subclassToUpdate)
+        public void UpdateSubclass(SubclassUpdateModel subclassToUpdate, int subclassId)
         {
-            Subclass entity = _ctx.Subclasses.Single(e => e.SubclassId == subclassToUpdate.SubclassId);
+            Subclass entity = _ctx.Subclasses.Single(e => e.SubclassId == subclassId);
             if (entity != null)
             {
                 if (subclassToUpdate.UpdatedSubclassName != null)

@@ -12,7 +12,7 @@ namespace Contracts
         void CreateSubclass(SubclassCreateModel subclassToCreate);
         SubclassDetailModel GetSubclassDetailById(int subclassId);
         IEnumerable<SubclassListItem> GetSubclassesByParentClass(int classId);
-        void UpdateSubclass(SubclassUpdateModel subclassToUpdate);
-        void DeleteSubclass(SubclassDeleteModel subclassToDelete);
+        void UpdateSubclass(SubclassUpdateModel subclassToUpdate, int subclassId);
+        void DeleteSubclass(int subclassId);
     }
 }
