@@ -12,7 +12,7 @@ namespace Contracts
         void CreateRace(RaceCreateModel raceToCreate);
         IEnumerable<RaceListItem> GetRaces();
         RaceDetailModel GetRaceDetailById(int raceId);
-        void UpdateRace(RaceUpdateModel raceToUpdate);
-        void DeleteRace(RaceDeleteModel raceToDelete);
+        void UpdateRace(RaceUpdateModel raceToUpdate, int raceId);
+        void DeleteRace(int raceId);
     }
 }

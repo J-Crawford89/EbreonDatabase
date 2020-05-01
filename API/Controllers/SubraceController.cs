@@ -11,10 +11,12 @@ using System.Web.Http;
 
 namespace API.Controllers
 {
+    [RoutePrefix("api/subrace")]
     public class SubraceController : ApiController
     {
         private ISubraceService _service;
         [HttpPost]
+        [Route("create")]
         public IHttpActionResult Create(SubraceCreateModel subraceToCreate)
         {
             if (!ModelState.IsValid)
@@ -24,6 +26,7 @@ namespace API.Controllers
             return Ok();
         }
         [HttpGet]
+        [Route("{subraceId:int}")]
         public IHttpActionResult GetDetail([FromUri] int subraceId)
         {
             _service = new SubraceService();
@@ -31,6 +34,7 @@ namespace API.Controllers
             return Ok(_service.GetSubraceDetailById(subraceId));
         }
         [HttpGet]
+        [Route("list/{raceId:int}")]
         public IHttpActionResult GetList([FromUri] int raceId)
         {
             _service = new SubraceService();
@@ -38,21 +42,23 @@ namespace API.Controllers
             return Ok(_service.GetSubracesByParentRace(raceId));
         }
         [HttpPut]
-        public IHttpActionResult Update(SubraceUpdateModel subraceToUpdate)
+        [Route("update/{subraceId:int}")]
+        public IHttpActionResult Update([FromBody] SubraceUpdateModel subraceToUpdate, [FromUri] int subraceId)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             _service = new SubraceService();
 
-            _service.UpdateSubrace(subraceToUpdate);
+            _service.UpdateSubrace(subraceToUpdate, subraceId);
             return Ok();
         }
         [HttpDelete]
-        public IHttpActionResult Delete(SubraceDeleteModel subraceToDelete)
+        [Route("delete/{subraceId:int}")]
+        public IHttpActionResult Delete([FromUri] int subraceId)
         {
             _service = new SubraceService();
 
-            _service.DeleteSubrace(subraceToDelete);
+            _service.DeleteSubrace(subraceId);
             return Ok();
         }
     }

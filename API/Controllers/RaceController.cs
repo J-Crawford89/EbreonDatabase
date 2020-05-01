@@ -10,10 +10,12 @@ using System.Web.Http;
 
 namespace API.Controllers
 {
+    [RoutePrefix("api/race")]
     public class RaceController : ApiController
     {
         private IRaceService _service;
         [HttpPost]
+        [Route("create")]
         public IHttpActionResult Create(RaceCreateModel raceToCreate)
         {
             if (!ModelState.IsValid)
@@ -23,31 +25,35 @@ namespace API.Controllers
             return Ok();
         }
         [HttpGet]
-        public IHttpActionResult GetDetail(int raceId)
+        [Route("{raceId:int}")]
+        public IHttpActionResult GetDetail([FromUri] int raceId)
         {
             _service = new RaceService();
             return Ok(_service.GetRaceDetailById(raceId));
         }
         [HttpGet]
+        [Route("list")]
         public IHttpActionResult GetList()
         {
             _service = new RaceService();
             return Ok(_service.GetRaces());
         }
         [HttpPut]
-        public IHttpActionResult Update(RaceUpdateModel raceToUpdate)
+        [Route("update/{raceId:int}")]
+        public IHttpActionResult Update([FromBody] RaceUpdateModel raceToUpdate, [FromUri] int raceId)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             _service = new RaceService();
-            _service.UpdateRace(raceToUpdate);
+            _service.UpdateRace(raceToUpdate, raceId);
             return Ok();
         }
         [HttpDelete]
-        public IHttpActionResult Delete(RaceDeleteModel raceToDelete)
+        [Route("delete/{raceId:int}")]
+        public IHttpActionResult Delete([FromUri] int raceId)
         {
             _service = new RaceService();
-            _service.DeleteRace(raceToDelete);
+            _service.DeleteRace(raceId);
             return Ok();
         }
     }

@@ -12,7 +12,7 @@ namespace Contracts
         void CreateSubrace(SubraceCreateModel subraceToCreate);
         IEnumerable<SubraceListItem> GetSubracesByParentRace(int parentRaceId);
         SubraceDetailModel GetSubraceDetailById(int subraceId);
-        void UpdateSubrace(SubraceUpdateModel subraceToUpdate);
-        void DeleteSubrace(SubraceDeleteModel subraceToDelete);
+        void UpdateSubrace(SubraceUpdateModel subraceToUpdate, int subraceId);
+        void DeleteSubrace(int subraceId);
     }
 }
