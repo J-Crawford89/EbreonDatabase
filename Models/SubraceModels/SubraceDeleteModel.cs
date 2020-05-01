@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contracts
+namespace Models.SubraceModels
 {
-    public class Class1
+    public class SubraceDeleteModel
     {
+        public int SubraceId { get; set; }
     }
 }

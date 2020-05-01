@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services
+namespace Models.RaceModels
 {
-    public class Class1
+    public class RaceDeleteModel
     {
+        public int RaceId { get; set; }
     }
 }
