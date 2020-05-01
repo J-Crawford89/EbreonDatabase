@@ -11,10 +11,12 @@ using System.Web.Http;
 
 namespace API.Controllers
 {
+    [RoutePrefix("api/subrace")]
     public class SubraceController : ApiController
     {
         private ISubraceService _service;
         [HttpPost]
+        [Route("create")]
         public IHttpActionResult Create(SubraceCreateModel subraceToCreate)
         {
             if (!ModelState.IsValid)
@@ -24,20 +26,23 @@ namespace API.Controllers
             return Ok();
         }
         [HttpGet]
-        public IHttpActionResult GetDetail(int subraceId)
+        [Route("{subraceId:int}")]
+        public IHttpActionResult GetDetail([FromUri] int subraceId)
         {
             _service = new SubraceService();
 
             return Ok(_service.GetSubraceDetailById(subraceId));
         }
         [HttpGet]
-        public IHttpActionResult GetList(int raceId)
+        [Route("list/{raceId:int}")]
+        public IHttpActionResult GetList([FromUri] int raceId)
         {
             _service = new SubraceService();
 
             return Ok(_service.GetSubracesByParentRace(raceId));
         }
         [HttpPut]
+        [Route("update/{subraceId:int}")]
         public IHttpActionResult Update(SubraceUpdateModel subraceToUpdate)
         {
             if (!ModelState.IsValid)
@@ -48,6 +53,7 @@ namespace API.Controllers
             return Ok();
         }
         [HttpDelete]
+        [Route("delete/{subraceId:int}")]
         public IHttpActionResult Delete(SubraceDeleteModel subraceToDelete)
         {
             _service = new SubraceService();

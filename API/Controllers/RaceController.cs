@@ -10,10 +10,12 @@ using System.Web.Http;
 
 namespace API.Controllers
 {
+    [RoutePrefix("api/race")]
     public class RaceController : ApiController
     {
         private IRaceService _service;
         [HttpPost]
+        [Route("create")]
         public IHttpActionResult Create(RaceCreateModel raceToCreate)
         {
             if (!ModelState.IsValid)
@@ -23,18 +25,21 @@ namespace API.Controllers
             return Ok();
         }
         [HttpGet]
-        public IHttpActionResult GetDetail(int raceId)
+        [Route("{raceId:int}")]
+        public IHttpActionResult GetDetail([FromUri] int raceId)
         {
             _service = new RaceService();
             return Ok(_service.GetRaceDetailById(raceId));
         }
         [HttpGet]
+        [Route("list")]
         public IHttpActionResult GetList()
         {
             _service = new RaceService();
             return Ok(_service.GetRaces());
         }
         [HttpPut]
+        [Route("update/{raceId:int}")]
         public IHttpActionResult Update(RaceUpdateModel raceToUpdate)
         {
             if (!ModelState.IsValid)
@@ -44,6 +49,7 @@ namespace API.Controllers
             return Ok();
         }
         [HttpDelete]
+        [Route("delete/{raceId:int}")]
         public IHttpActionResult Delete(RaceDeleteModel raceToDelete)
         {
             _service = new RaceService();
