@@ -163,6 +163,14 @@
     <Compile Include="Migrations\202004302340175_initial migration.Designer.cs">
       <DependentUpon>202004302340175_initial migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005011944248_fixed spelling on subclass.cs" />
+    <Compile Include="Migrations\202005011944248_fixed spelling on subclass.Designer.cs">
+      <DependentUpon>202005011944248_fixed spelling on subclass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005011949439_reordered subclass.cs" />
+    <Compile Include="Migrations\202005011949439_reordered subclass.Designer.cs">
+      <DependentUpon>202005011949439_reordered subclass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -173,6 +181,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202004302340175_initial migration.resx">
       <DependentUpon>202004302340175_initial migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005011944248_fixed spelling on subclass.resx">
+      <DependentUpon>202005011944248_fixed spelling on subclass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005011949439_reordered subclass.resx">
+      <DependentUpon>202005011949439_reordered subclass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
