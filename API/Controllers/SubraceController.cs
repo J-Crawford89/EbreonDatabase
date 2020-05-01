@@ -43,22 +43,22 @@ namespace API.Controllers
         }
         [HttpPut]
         [Route("update/{subraceId:int}")]
-        public IHttpActionResult Update(SubraceUpdateModel subraceToUpdate)
+        public IHttpActionResult Update([FromBody] SubraceUpdateModel subraceToUpdate, [FromUri] int subraceId)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             _service = new SubraceService();
 
-            _service.UpdateSubrace(subraceToUpdate);
+            _service.UpdateSubrace(subraceToUpdate, subraceId);
             return Ok();
         }
         [HttpDelete]
         [Route("delete/{subraceId:int}")]
-        public IHttpActionResult Delete(SubraceDeleteModel subraceToDelete)
+        public IHttpActionResult Delete([FromUri] int subraceId)
         {
             _service = new SubraceService();
 
-            _service.DeleteSubrace(subraceToDelete);
+            _service.DeleteSubrace(subraceId);
             return Ok();
         }
     }

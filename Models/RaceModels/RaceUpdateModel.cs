@@ -9,7 +9,6 @@ namespace Models.RaceModels
 {
     public class RaceUpdateModel
     {
-        public int RaceId { get; set; }
         public string UpdatedRaceName { get; set; }
         public string UpdatedRaceDescription { get; set; }
         public string UpdatedSpeed { get; set; }

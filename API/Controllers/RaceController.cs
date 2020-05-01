@@ -40,20 +40,20 @@ namespace API.Controllers
         }
         [HttpPut]
         [Route("update/{raceId:int}")]
-        public IHttpActionResult Update(RaceUpdateModel raceToUpdate)
+        public IHttpActionResult Update([FromBody] RaceUpdateModel raceToUpdate, [FromUri] int raceId)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             _service = new RaceService();
-            _service.UpdateRace(raceToUpdate);
+            _service.UpdateRace(raceToUpdate, raceId);
             return Ok();
         }
         [HttpDelete]
         [Route("delete/{raceId:int}")]
-        public IHttpActionResult Delete(RaceDeleteModel raceToDelete)
+        public IHttpActionResult Delete([FromUri] int raceId)
         {
             _service = new RaceService();
-            _service.DeleteRace(raceToDelete);
+            _service.DeleteRace(raceId);
             return Ok();
         }
     }

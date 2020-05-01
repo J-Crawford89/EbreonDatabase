@@ -27,9 +27,9 @@ namespace Services
             _ctx.SaveChanges();
         }
 
-        public void DeleteSubrace(SubraceDeleteModel subraceToDelete)
+        public void DeleteSubrace(int subraceId)
         {
-            Subrace entity = _ctx.Subraces.Single(e => e.SubraceId == subraceToDelete.SubraceId);
+            Subrace entity = _ctx.Subraces.Single(e => e.SubraceId == subraceId);
             _ctx.Subraces.Remove(entity);
         }
 
@@ -60,9 +60,9 @@ namespace Services
             return returnList;
         }
 
-        public void UpdateSubrace(SubraceUpdateModel subraceToUpdate)
+        public void UpdateSubrace(SubraceUpdateModel subraceToUpdate, int subraceId)
         {
-            Subrace entity = _ctx.Subraces.Single(e => e.SubraceId == subraceToUpdate.SubraceId);
+            Subrace entity = _ctx.Subraces.Single(e => e.SubraceId == subraceId);
             if (entity != null)
             {
                 if (subraceToUpdate.UpdatedSubraceName != null)

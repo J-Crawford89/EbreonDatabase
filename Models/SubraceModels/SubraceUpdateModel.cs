@@ -8,7 +8,6 @@ namespace Models.SubraceModels
 {
     public class SubraceUpdateModel
     {
-        public int SubraceId { get; set; }
         public string UpdatedSubraceName { get; set; }
         public string UpdatedSubraceDescription { get; set; }
         public string UpdatedAbilityScoreIncrease { get; set; }

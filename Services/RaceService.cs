@@ -31,9 +31,9 @@ namespace Services
             _ctx.SaveChanges();
         }
 
-        public void DeleteRace(RaceDeleteModel raceToDelete)
+        public void DeleteRace(int raceId)
         {
-            Race entity = _ctx.Races.Single(e => e.RaceId == raceToDelete.RaceId);
+            Race entity = _ctx.Races.Single(e => e.RaceId == raceId);
             _ctx.Races.Remove(entity);
             _ctx.SaveChanges();
         }
@@ -67,9 +67,9 @@ namespace Services
             return returnList;
         }
 
-        public void UpdateRace(RaceUpdateModel raceToUpdate)
+        public void UpdateRace(RaceUpdateModel raceToUpdate, int raceId)
         {
-            Race entity = _ctx.Races.Single(e => e.RaceId == raceToUpdate.RaceId);
+            Race entity = _ctx.Races.Single(e => e.RaceId == raceId);
             if (entity != null)
             {
                 if (raceToUpdate.UpdatedRaceName != null)
