@@ -11,8 +11,8 @@ namespace Data.Entities
     public class Subclass
     {
         [Key]
-        public int SublcassId { get; set; }
-        public string SublcassName { get; set; }
+        public int SubclassId { get; set; }
+        public string SubclassName { get; set; }
         public string SubclassDescription { get; set; }
         public string Source { get; set; }
         [ForeignKey("ParentClass")]
