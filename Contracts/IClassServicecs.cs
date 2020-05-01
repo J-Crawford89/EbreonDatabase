@@ -12,7 +12,7 @@ namespace Contracts
         void CreateClass(ClassCreateModel classToCreate);
         ClassDetailModel GetClassDetailById(int classId);
         IEnumerable<ClassListItem> GetClasses();
-        void UpdateClass(ClassUpdateModel classToUpdate);
-        void DeleteClass(ClassDeleteModel classToDelete);
+        void UpdateClass(ClassUpdateModel classToUpdate, int classId);
+        void DeleteClass(int classId);
     }
 }

@@ -10,10 +10,12 @@ using System.Web.Http;
 
 namespace API.Controllers
 {
+    [RoutePrefix("api/subclass")]
     public class SubclassController : ApiController
     {
         private ISubclassService _service;
         [HttpPost]
+        [Route("create")]
         public IHttpActionResult Create(SubclassCreateModel subclassToCreate)
         {
             if (!ModelState.IsValid)
@@ -23,31 +25,35 @@ namespace API.Controllers
             return Ok();
         }
         [HttpGet]
-        public IHttpActionResult GetDetail(int subClassId)
+        [Route("{subclassId:int}")]
+        public IHttpActionResult GetDetail([FromUri] int subclassId)
         {
             _service = new SubclassService();
-            return Ok(_service.GetSubclassDetailById(subClassId));
+            return Ok(_service.GetSubclassDetailById(subclassId));
         }
         [HttpGet]
-        public IHttpActionResult GetList(int classId)
+        [Route("list/{classId:int}")]
+        public IHttpActionResult GetList([FromUri] int classId)
         {
             _service = new SubclassService();
             return Ok(_service.GetSubclassesByParentClass(classId));
         }
         [HttpPut]
-        public IHttpActionResult Update(SubclassUpdateModel subclassToUpdate)
+        [Route("update/{subclassId:int}")]
+        public IHttpActionResult Update([FromBody] SubclassUpdateModel subclassToUpdate, [FromUri] int subclassId)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             _service = new SubclassService();
-            _service.UpdateSubclass(subclassToUpdate);
+            _service.UpdateSubclass(subclassToUpdate, subclassId);
             return Ok();
         }
         [HttpDelete]
-        public IHttpActionResult Delete(SubclassDeleteModel subclassToDelete)
+        [Route("delete/{subclassId:int}")]
+        public IHttpActionResult Delete([FromUri] int subclassId)
         {
             _service = new SubclassService();
-            _service.DeleteSubclass(subclassToDelete);
+            _service.DeleteSubclass(subclassId);
             return Ok();
         }
     }

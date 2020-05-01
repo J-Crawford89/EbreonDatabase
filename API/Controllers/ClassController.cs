@@ -10,10 +10,12 @@ using System.Web.Http;
 
 namespace API.Controllers
 {
+    [RoutePrefix("api/class")]
     public class ClassController : ApiController
     {
         private IClassServicecs _service;
         [HttpPost]
+        [Route("create")]
         public IHttpActionResult Create(ClassCreateModel classToCreate)
         {
             if (!ModelState.IsValid)
@@ -23,31 +25,35 @@ namespace API.Controllers
             return Ok();
         }
         [HttpGet]
-        public IHttpActionResult GetDetail(int classId)
+        [Route("{classId:int}")]
+        public IHttpActionResult GetDetail([FromUri] int classId)
         {
             _service = new ClassService();
             return Ok(_service.GetClassDetailById(classId));
         }
         [HttpGet]
+        [Route("list")]
         public IHttpActionResult GetList()
         {
             _service = new ClassService();
             return Ok(_service.GetClasses());
         }
         [HttpPut]
-        public IHttpActionResult Update(ClassUpdateModel classToUpdate)
+        [Route("update/{classId:int}")]
+        public IHttpActionResult Update([FromBody] ClassUpdateModel classToUpdate, [FromUri] int classId)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             _service = new ClassService();
-            _service.UpdateClass(classToUpdate);
+            _service.UpdateClass(classToUpdate, classId);
             return Ok();
         }
         [HttpDelete]
-        public IHttpActionResult Delete(ClassDeleteModel classToDelete)
+        [Route("delete/{classId:int}")]
+        public IHttpActionResult Delete([FromUri] int classId)
         {
             _service = new ClassService();
-            _service.DeleteClass(classToDelete);
+            _service.DeleteClass(classId);
             return Ok();
         }
     }

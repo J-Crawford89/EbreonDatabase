@@ -24,14 +24,14 @@ namespace API.Controllers
             return Ok();
         }
         [HttpGet]
-        public IHttpActionResult GetDetail(int subraceId)
+        public IHttpActionResult GetDetail([FromUri] int subraceId)
         {
             _service = new SubraceService();
 
             return Ok(_service.GetSubraceDetailById(subraceId));
         }
         [HttpGet]
-        public IHttpActionResult GetList(int raceId)
+        public IHttpActionResult GetList([FromUri] int raceId)
         {
             _service = new SubraceService();
 

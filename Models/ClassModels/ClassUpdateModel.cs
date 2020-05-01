@@ -8,7 +8,6 @@ namespace Models.ClassModels
 {
     public class ClassUpdateModel
     {
-        public int ClassId { get; set; }
         public string UpdatedClassName { get; set; }
         public string UpdatedClassDescription { get; set; }
         public string UpdatedKeyAbilities { get; set; }
