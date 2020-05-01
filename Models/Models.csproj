@@ -54,12 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassModels\ClassCreateModel.cs" />
+    <Compile Include="ClassModels\ClassDeleteModel.cs" />
+    <Compile Include="ClassModels\ClassDetailModel.cs" />
+    <Compile Include="ClassModels\ClassListItem.cs" />
+    <Compile Include="ClassModels\ClassUpdateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RaceModels\RaceCreateModel.cs" />
     <Compile Include="RaceModels\RaceDeleteModel.cs" />
     <Compile Include="RaceModels\RaceDetailModel.cs" />
     <Compile Include="RaceModels\RaceListItem.cs" />
     <Compile Include="RaceModels\RaceUpdateModel.cs" />
+    <Compile Include="SubclassModels\SubclassCreateModel.cs" />
+    <Compile Include="SubclassModels\SubclassDeleteModel.cs" />
+    <Compile Include="SubclassModels\SubclassDetailModel.cs" />
+    <Compile Include="SubclassModels\SubclassListItem.cs" />
+    <Compile Include="SubclassModels\SubclassUpdateModel.cs" />
     <Compile Include="SubraceModels\SubraceCreateModel.cs" />
     <Compile Include="SubraceModels\SubraceDeleteModel.cs" />
     <Compile Include="SubraceModels\SubraceDetailModel.cs" />
@@ -70,5 +80,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

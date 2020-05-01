@@ -54,7 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IClassServicecs.cs" />
     <Compile Include="IRaceService.cs" />
+    <Compile Include="ISubclassService.cs" />
     <Compile Include="ISubraceService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
