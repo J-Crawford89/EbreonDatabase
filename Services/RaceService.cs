@@ -20,10 +20,11 @@ namespace Services
             {
                 RaceName = raceToCreate.RaceName,
                 RaceDescription = raceToCreate.RaceDescription,
+                HasSubraces = raceToCreate.HasSubraces,
                 AbilityScoreIncrease = raceToCreate.AbilityScoreIncrease,
                 Speed = raceToCreate.Speed,
                 Language = raceToCreate.Language,
-                Darkvision = raceToCreate.Darkvision,
+                HasDarkvision = raceToCreate.HasDarkvision,
                 Source = raceToCreate.Source,
                 Origin = raceToCreate.Origin
             };
@@ -46,10 +47,11 @@ namespace Services
                 RaceId = race.RaceId,
                 RaceName = race.RaceName,
                 RaceDescription = race.RaceDescription,
+                HasSubraces = race.HasSubraces,
                 Speed = race.Speed,
                 AbilityScoreIncrease = race.AbilityScoreIncrease,
                 Language = race.Language,
-                Darkvision = race.Darkvision,
+                HasDarkvision = race.HasDarkvision,
                 Source = race.Source,
                 Origin = race.Origin
             };
@@ -76,14 +78,16 @@ namespace Services
                     entity.RaceName = raceToUpdate.UpdatedRaceName;
                 if (raceToUpdate.UpdatedRaceDescription != null)
                     entity.RaceDescription = raceToUpdate.UpdatedRaceDescription;
+                if (raceToUpdate.UpdatedHasSubraces != null)
+                    entity.HasSubraces = (bool)raceToUpdate.UpdatedHasSubraces;
                 if (raceToUpdate.UpdatedSpeed != null)
                     entity.Speed = raceToUpdate.UpdatedSpeed;
                 if (raceToUpdate.UpdatedLanguage != null)
                     entity.Language = raceToUpdate.UpdatedLanguage;
                 if (raceToUpdate.UpdatedAbilityScoreIncrease != null)
                     entity.AbilityScoreIncrease = raceToUpdate.UpdatedAbilityScoreIncrease;
-                if (raceToUpdate.UpdatedDarkvision != null)
-                    entity.Darkvision = (bool)raceToUpdate.UpdatedDarkvision;
+                if (raceToUpdate.UpdatedHasDarkvision != null)
+                    entity.HasDarkvision = (bool)raceToUpdate.UpdatedHasDarkvision;
                 if (raceToUpdate.UpdatedSource != null)
                     entity.Source = raceToUpdate.UpdatedSource;
                 if (raceToUpdate.UpdatedOrigin != null)

@@ -171,6 +171,10 @@
     <Compile Include="Migrations\202005011949439_reordered subclass.Designer.cs">
       <DependentUpon>202005011949439_reordered subclass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005021302493_added has subraces to race.cs" />
+    <Compile Include="Migrations\202005021302493_added has subraces to race.Designer.cs">
+      <DependentUpon>202005021302493_added has subraces to race.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -187,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005011949439_reordered subclass.resx">
       <DependentUpon>202005011949439_reordered subclass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005021302493_added has subraces to race.resx">
+      <DependentUpon>202005021302493_added has subraces to race.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -11,10 +11,11 @@ namespace Models.RaceModels
     {
         public string UpdatedRaceName { get; set; }
         public string UpdatedRaceDescription { get; set; }
+        public bool? UpdatedHasSubraces { get; set; }
         public string UpdatedSpeed { get; set; }
         public string UpdatedLanguage { get; set; }
         public string UpdatedAbilityScoreIncrease { get; set; }
-        public bool? UpdatedDarkvision { get; set; }
+        public bool? UpdatedHasDarkvision { get; set; }
         public string UpdatedSource { get; set; }
         public string UpdatedOrigin { get; set; }
     }
