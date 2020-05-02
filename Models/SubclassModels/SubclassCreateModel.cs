@@ -1,22 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Entities
+namespace Models.SubclassModels
 {
-    public class Subclass
+    public class SubclassCreateModel
     {
-        [Key]
-        public int SubclassId { get; set; }
         public string SubclassName { get; set; }
         public string SubclassDescription { get; set; }
         public string Source { get; set; }
-        [ForeignKey("ParentClass")]
         public int ClassId { get; set; }
-        public virtual Class ParentClass { get; set; }
     }
 }

@@ -1,24 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Entities
+namespace Models.SubraceModels
 {
-    public class Subrace
+    public class SubraceDetailModel
     {
-        [Key]
         public int SubraceId { get; set; }
         public string SubraceName { get; set; }
         public string SubraceDescription { get; set; }
         public string AbilityScoreIncrease { get; set; }
         public string Source { get; set; }
         public string Origin { get; set; }
-        [ForeignKey("ParentRace")]
-        public int RaceId { get; set; }
-        public virtual Race ParentRace { get; set; }
+        public string ParentRaceName { get; set; }
     }
 }
